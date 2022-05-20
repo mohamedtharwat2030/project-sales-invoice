@@ -110,7 +110,6 @@ public class InvControl implements ActionListener , ListSelectionListener{
                 File mainfi = fchoser.getSelectedFile();
                 Path mainPath = Paths.get(mainfi.getAbsolutePath()); 
                 java.util.List<String> mainLines = Files.readAllLines(mainPath);
-                System.out.println("im heeeeeeeeeeer");
                 
                 ArrayList<InvAllData> InvAllDataArray = new ArrayList<>();
                 for (String eachLine : mainLines) {
@@ -123,13 +122,11 @@ public class InvControl implements ActionListener , ListSelectionListener{
                     InvAllDataArray.add(invAllData);
                 }
                 
-                System.out.println("check");
                 chose = fchoser.showOpenDialog(null) ;
             if(chose == JFileChooser.APPROVE_OPTION){
                 File linefi = fchoser.getSelectedFile();
                 Path linePath = Paths.get(linefi.getAbsolutePath()); 
                java.util.List<String> allLines = Files.readAllLines(linePath);
-                System.out.println("im Lineeeeeeeeee ");
                 
                 for (String allLine : allLines) {
                         String sLineParts[] = allLine.split(",");
@@ -148,7 +145,6 @@ public class InvControl implements ActionListener , ListSelectionListener{
                         DataLine sline = new DataLine( itemName, itemPrice,count, inv);
                         inv.getDataLines().add(sline);
                     }
-                    System.out.println("Check point");
                 }
                 frame.setInvoices(InvAllDataArray);
                 TableModelInv tableModelInv = new TableModelInv(InvAllDataArray);
